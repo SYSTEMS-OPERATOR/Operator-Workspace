@@ -1,3 +1,3 @@
 # E6
 
-This directory is dedicated to the E6 group, which is part of the E series data generators. It will contain resources and code specific to the E6 group.
+E6 is one of the five exceptional simple Lie groups, which are fundamental in the study of symmetry in mathematics. It has a complex structure and is associated with a 78-dimensional Lie algebra. E6 is significant in theoretical physics, particularly in grand unified theories and string theory, due to its complex representations and connections to higher-dimensional spaces.
