@@ -16,7 +16,8 @@ class E8DataGenerator:
 
     def generate_data(self):
         """Generate data for the E8 group."""
-        self.data = np.random.rand(self.data_size, 8)
+        self.data 
+        = np.random.rand(self.data_size, 8)
         return self.data
 
     def get_data(self):
