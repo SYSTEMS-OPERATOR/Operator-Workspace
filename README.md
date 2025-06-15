@@ -16,6 +16,7 @@ This repository serves as a workspace for organizing and managing tasks. It incl
 ## Usage
 
 To get started with the projects in this repository, navigate to the desired directory and follow the instructions provided in the respective README files. The E8 Model project, for example, contains detailed information on how to set up and run experiments related to E-group symmetries in neural networks.
+- You can quickly generate sample datasets for all E groups by running `scripts/generate_all_data.py`.
 
 ## Contribution
 
