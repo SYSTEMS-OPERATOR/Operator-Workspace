@@ -1,6 +1,11 @@
 """Tests for E-group data generators."""
 
+import sys
+from pathlib import Path
 import unittest
+
+# Ensure local 'projects' package is used
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from projects.E8_Model.E1.e1_data_generator import E1DataGenerator
 from projects.E8_Model.E2.e2_data_generator import E2DataGenerator
