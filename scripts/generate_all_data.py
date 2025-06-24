@@ -1,5 +1,12 @@
 """Generate sample data for all E-group data generators."""
 
+from pathlib import Path
+import sys
+
+# Ensure the repository root is on the Python path so the ``projects`` package
+# imports correctly when this script is executed directly.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from projects.E8_Model.E1.e1_data_generator import E1DataGenerator
 from projects.E8_Model.E2.e2_data_generator import E2DataGenerator
 from projects.E8_Model.E3.e3_data_generator import E3DataGenerator
