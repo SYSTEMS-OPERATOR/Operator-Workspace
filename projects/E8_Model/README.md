@@ -20,8 +20,8 @@ The project is organized into several directories, each representing a different
 - **E6**: Quantum interference embeddings
 - **E7**: Emergence embeddings
 - **E8**: Closed system embeddings
-- **E9**: Affine extensions
-- **E10**: Hyperbolic symmetries
+- **E9**: Placeholder Affine extensions
+- **E10**: Conjectured Hyperbolic symmetries
 - **E11**: Conjectured M-theory unification
 
 ## Usage

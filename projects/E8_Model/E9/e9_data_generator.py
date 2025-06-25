@@ -11,16 +11,19 @@ class E9DataGenerator:
 
     def __init__(self, data_size=100):
         """Initialize the generator with a specified data size."""
+        # Store the desired size of the generated dataset
         self.data_size = data_size
         self.data = None
 
     def generate_data(self):
         """Generate data for the E9 group."""
+        # Create a random dataset with nine features
         self.data = np.random.rand(self.data_size, 9)
         return self.data
 
     def get_data(self):
         """Retrieve the generated data."""
+        # Generate data on demand if it does not already exist
         if self.data is None:
             self.generate_data()
         return self.data
