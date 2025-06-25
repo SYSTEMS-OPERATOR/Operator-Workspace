@@ -10,5 +10,6 @@ Below is a list of key documents:
 - `matrix_theory_overview.md` -- short introduction to matrix theory and its
   relation to the project.
 - `higher_e_groups.md` -- conceptual background for the infinite E9--E11 groups.
+- `exceptional_lie_groups.md` -- quick reference on E1--E11 with links to key texts.
 
 Use these files as starting points for deeper research and implementation.
