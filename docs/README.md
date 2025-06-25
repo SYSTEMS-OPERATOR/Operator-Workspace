@@ -12,5 +12,6 @@ Below is a list of key documents:
   relation to the project.
 - `higher_e_groups.md` -- conceptual background for the infinite E9--E11 groups.
 - `exceptional_lie_groups.md` -- quick reference on E1--E11 with links to key texts.
+- `e_series_toolkit.md` -- detailed tables and literature links for E6--E11.
 
 Use these files as starting points for deeper research and implementation.
