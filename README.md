@@ -5,11 +5,11 @@ This repository serves as a workspace for organizing and managing tasks. It incl
 ## Repository Structure
 
 - **projects/**: Contains sub-projects and experiments developed under Operator-Workspace.
-  - **E8_Model/**: A project dedicated to implementing E-group (E1–E8) concepts within advanced neural architectures.
+  - **E8_Model/**: A project dedicated to implementing E-group concepts (E1–E11) within advanced neural architectures.
     - **README.md**: Provides an overview of the E8 Model project, setup instructions, references, and documentation.
-    - **E1/** through **E8/**: Each directory contains specific data generation scripts and placeholder modules for each E-layer.
+    - **E1/** through **E11/**: Each directory contains specific data generation scripts and placeholder modules for each E-layer.
 
-- **docs/**: Stores supplementary documentation, design diagrams, or tutorial notebooks.
+- **docs/**: Stores supplementary documentation, design diagrams, or tutorial notebooks, including an overview of E-groups and matrix theory.
 - **scripts/**: Contains standalone scripts for tasks such as data processing, running experiments, or helper utilities.
 - **tests/**: Holds unit tests, integration tests, or end-to-end tests.
 

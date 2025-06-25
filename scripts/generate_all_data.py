@@ -15,6 +15,9 @@ from projects.E8_Model.E5.e5_data_generator import E5DataGenerator
 from projects.E8_Model.E6.e6_data_generator import E6DataGenerator
 from projects.E8_Model.E7.e7_data_generator import E7DataGenerator
 from projects.E8_Model.E8.e8_data_generator import E8DataGenerator
+from projects.E8_Model.E9.e9_data_generator import E9DataGenerator
+from projects.E8_Model.E10.e10_data_generator import E10DataGenerator
+from projects.E8_Model.E11.e11_data_generator import E11DataGenerator
 
 
 GENERATORS = [
@@ -26,6 +29,9 @@ GENERATORS = [
     ("E6", E6DataGenerator),
     ("E7", E7DataGenerator),
     ("E8", E8DataGenerator),
+    ("E9", E9DataGenerator),
+    ("E10", E10DataGenerator),
+    ("E11", E11DataGenerator),
 ]
 
 
