@@ -1,7 +1,8 @@
 """
 E7 Data Generator
 
-This module contains the data generator for the E7 group, which is part of the E series data generators.
+This module contains the data generator for the E7 group. It is part of the
+E series data generators.
 """
 
 import numpy as np
