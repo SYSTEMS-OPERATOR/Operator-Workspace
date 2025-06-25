@@ -1,9 +1,6 @@
-"""
-E11 Data Generator
+"""E11 Data Generator
 
-This module contains the data generator for the E11 group. It is part of the
-E series data generators.
-"""
+This module contains the data generator for the E11 group."""
 
 import numpy as np
 
@@ -12,7 +9,7 @@ class E11DataGenerator:
     """A data generator for the E11 group."""
 
     def __init__(self, data_size=100):
-        """Initialize the data generator with a specified data size."""
+        """Initialize the generator with a specified data size."""
         # Store the desired size of the generated dataset
         self.data_size = data_size
         self.data = None

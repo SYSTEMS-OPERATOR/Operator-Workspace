@@ -1,5 +1,8 @@
 # Documentation
 
+This directory contains documentation related to the projects and tasks in this repository. It includes guides, notes, and other relevant information.
+\n- [E-Groups and Matrix Theory](e_groups_overview.md)
+
 This directory collects references and notes for the E-series projects.
 Below is a list of key documents:
 

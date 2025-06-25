@@ -5,6 +5,8 @@ This directory is dedicated to the E8 model, a neural network architecture based
 ## Overview
 
 The E8 Model project is an exploration of neural network architectures based on M-Theory and matrix theory. The primary goal is to develop a 248-dimensional matrix using PyTorch, TensorFlow, and Keras, with a focus on E series data generators. The project aims to leverage the Lie Algebra group to populate predefined matrices between layers of adaptive embeddings, drawing inspiration from m-branes in M-Theory.
+Beyond the classical E1–E8 range, this project also provides conceptual resources for E9–E11, allowing experimentation with affine and hyperbolic symmetries relevant to M-theory.
+
 
 ## Structure
 
@@ -18,9 +20,9 @@ The project is organized into several directories, each representing a different
 - **E6**: Quantum interference embeddings
 - **E7**: Emergence embeddings
 - **E8**: Closed system embeddings
-- **E9**: Placeholder affine extension
-- **E10**: Placeholder hyperbolic extension
-- **E11**: Placeholder M-theory symmetry
+- **E9**: Placeholder Affine extensions
+- **E10**: Conjectured Hyperbolic symmetries
+- **E11**: Conjectured M-theory unification
 
 ## Usage
 
