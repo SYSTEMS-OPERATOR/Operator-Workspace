@@ -15,6 +15,9 @@ from projects.E8_Model.E5.e5_data_generator import E5DataGenerator
 from projects.E8_Model.E6.e6_data_generator import E6DataGenerator
 from projects.E8_Model.E7.e7_data_generator import E7DataGenerator
 from projects.E8_Model.E8.e8_data_generator import E8DataGenerator
+from projects.E8_Model.E9.e9_data_generator import E9DataGenerator
+from projects.E8_Model.E10.e10_data_generator import E10DataGenerator
+from projects.E8_Model.E11.e11_data_generator import E11DataGenerator
 
 
 class TestGenerators(unittest.TestCase):
@@ -46,6 +49,15 @@ class TestGenerators(unittest.TestCase):
 
     def test_e8(self):
         self._check_generator(E8DataGenerator, 8)
+
+    def test_e9(self):
+        self._check_generator(E9DataGenerator, 9)
+
+    def test_e10(self):
+        self._check_generator(E10DataGenerator, 10)
+
+    def test_e11(self):
+        self._check_generator(E11DataGenerator, 11)
 
 
 if __name__ == "__main__":
