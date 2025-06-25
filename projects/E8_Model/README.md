@@ -8,7 +8,7 @@ The E8 Model project is an exploration of neural network architectures based on 
 
 ## Structure
 
-The project is organized into several directories, each representing a different E group (E1-E8). These directories contain resources and code related to data generators, neural network implementations, and other relevant components.
+The project is organized into several directories, each representing a different E group (E1-E11). These directories contain resources and code related to data generators, neural network implementations, and other relevant components.
 
 - **E1**: Time-based embeddings
 - **E2**: Spatial embeddings
@@ -18,6 +18,9 @@ The project is organized into several directories, each representing a different
 - **E6**: Quantum interference embeddings
 - **E7**: Emergence embeddings
 - **E8**: Closed system embeddings
+- **E9**: Placeholder affine extension
+- **E10**: Placeholder hyperbolic extension
+- **E11**: Placeholder M-theory symmetry
 
 ## Usage
 
