@@ -14,7 +14,7 @@ Below is a list of key documents:
   relation to the project.
 - `higher_e_groups.md` -- conceptual background for the infinite E9--E11 groups.
 - `exceptional_lie_groups.md` -- quick reference on E1--E11 with links to key texts.
-- `e_series_matrix_forms.md` -- example matrix representations for each E group.
+- `e_series_matrix_forms.md` -- simple matrix realisations for each group.
 - `e_series_toolkit.md` -- detailed tables and literature links for E6--E11.
 
 
