@@ -63,28 +63,24 @@ Co-Authors: Dr. Amelia Voss (Head of the E8 Initiative at CERN) and Tonic
 """
 
 import tensorflow as tf
-from tensorflow.keras.layers import (
-    Input,
-    Dense,
-    LayerNormalization,
-    Concatenate,
-)
-from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Dense
 
 ###############################################################################
 # E-Group Fixed/Trainable Layer Definitions
 ###############################################################################
+
 
 def create_fixed_layer(dimensions, layer_name):
     """
     Non-trainable (fixed) transformation representing a stable E-group matrix.
     """
     return Dense(
-        units=dimensions, 
-        activation='linear', 
-        trainable=False, 
+        units=dimensions,
+        activation='linear',
+        trainable=False,
         name=f"Fixed_{layer_name}"
     )
+
 
 def create_trainable_layer(input_dim, output_dim, layer_name):
     """

@@ -6,6 +6,7 @@ This module contains the data generator for the E3 group, which is part of the E
 
 import numpy as np
 
+
 class E3DataGenerator:
     """A data generator for the E3 group."""
 

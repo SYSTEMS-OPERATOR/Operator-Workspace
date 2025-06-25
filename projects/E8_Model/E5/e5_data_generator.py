@@ -6,6 +6,7 @@ This module contains the data generator for the E5 group, which is part of the E
 
 import numpy as np
 
+
 class E5DataGenerator:
     """A data generator for the E5 group."""
 
