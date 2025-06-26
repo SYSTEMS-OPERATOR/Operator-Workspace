@@ -2,6 +2,16 @@
 
 This repository serves as a workspace for organizing and managing tasks. It includes directories for documentation, project files, and other resources. Feel free to add or modify content as needed.
 
+## Requirements
+
+The E-series micro-kernel under `e4d/` relies on NumPy. SciPy is optional and, if
+installed, will be used for matrix exponentials and logarithms. Install both
+packages via:
+
+```bash
+pip install numpy scipy  # SciPy may be omitted for a lightweight setup
+```
+
 ## Repository Structure
 
 - **projects/**: Contains sub-projects and experiments developed under Operator-Workspace.
