@@ -1,0 +1,5 @@
+"""E2 X-axis kernel."""
+
+from .kernel import Kernel
+
+__all__ = ["Kernel"]
