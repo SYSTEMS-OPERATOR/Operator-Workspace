@@ -62,7 +62,12 @@ def unify_bibtex(root: Path) -> Dict[str, str]:
 
     refs_dir = root / "docs" / "refs"
     refs_dir.mkdir(parents=True, exist_ok=True)
-    bib_files = list(root.rglob("*.bib"))
+    # ignore previously consolidated output to avoid self-duplication
+    bib_files = [
+        p
+        for p in root.rglob("*.bib")
+        if p.resolve() != (refs_dir / "e_series.bib").resolve()
+    ]
     key_map: Dict[str, str] = {}
 
     if not bib_files:
