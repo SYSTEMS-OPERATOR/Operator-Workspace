@@ -29,6 +29,16 @@ class FourVector:
         )
 
     def lorentz_boost(self, beta: float, axis: str = "x") -> "FourVector":
+        """Return a new four-vector boosted along ``axis``.
+
+        Parameters
+        ----------
+        beta:
+            Normalised velocity (``v/c``) of the boost.
+        axis:
+            Spatial axis for the boost – ``"x"``, ``"y"`` or ``"z"``.
+        """
+
         gamma = 1.0 / np.sqrt(1 - beta ** 2)
         t, x, y, z = self._decode_components()
         if axis == "x":
@@ -39,10 +49,12 @@ class FourVector:
             t_new = gamma * (t - beta * y)
             y_new = gamma * (y - beta * t)
             x_new, z_new = x, z
-        else:
+        elif axis == "z":
             t_new = gamma * (t - beta * z)
             z_new = gamma * (z - beta * t)
             x_new, y_new = x, y
+        else:
+            raise ValueError("axis must be 'x', 'y' or 'z'")
         return FourVector(t_new, x_new, y_new, z_new)
 
     def as_array(self) -> ndarray:
