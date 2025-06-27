@@ -31,7 +31,7 @@ To get started with the projects in this repository, navigate to the desired dir
  - The helper `scripts/qa_pipeline.py` scans the repository, detects duplicate files, and consolidates BibTeX references into `docs/refs/e_series.bib` while generating `e_series_keymap.json`.
 
 - To create an inventory of repository files, run `scripts/repo_integrator.py` which
-  writes `repo_manifest.yaml` for auditing purposes.
+  writes `repo_manifest.json` for auditing purposes.
 
 
 ## Contribution

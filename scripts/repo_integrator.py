@@ -67,7 +67,7 @@ def detect_duplicates(paths: List[str], root: Path = ROOT) -> Dict[str, List[str
 
 def main() -> None:
     manifest = scan_repo()
-    with open("repo_manifest.yaml", "w", encoding="utf-8") as f:
+    with open("repo_manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
     dups = detect_duplicates([p for group in manifest.values() for p in group], ROOT)
     if dups:

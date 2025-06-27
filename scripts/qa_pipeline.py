@@ -30,7 +30,7 @@ def scan_repo(root: Path) -> Dict[str, List[str]]:
                 if ext in exts:
                     manifest[category].append(str(path.relative_to(root)))
                     break
-    with open(root / "repo_manifest.yaml", "w", encoding="utf-8") as fh:
+    with open(root / "repo_manifest.json", "w", encoding="utf-8") as fh:
         json.dump(manifest, fh, indent=2)
     return manifest
 
