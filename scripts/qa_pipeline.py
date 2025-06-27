@@ -7,9 +7,6 @@ import json
 from pathlib import Path
 from typing import Dict, List
 
-import yaml
-
-
 CATEGORIES = {
     "code": {".py", ".ipynb", ".sage", ".m", ".jl"},
     "data": {".json", ".csv", ".npy", ".pkl"},
@@ -34,7 +31,7 @@ def scan_repo(root: Path) -> Dict[str, List[str]]:
                     manifest[category].append(str(path.relative_to(root)))
                     break
     with open(root / "repo_manifest.yaml", "w", encoding="utf-8") as fh:
-        yaml.safe_dump(manifest, fh, sort_keys=False)
+        json.dump(manifest, fh, indent=2)
     return manifest
 
 
@@ -48,14 +45,30 @@ def detect_duplicates(paths: List[str]) -> Dict[str, List[str]]:
     return {h: ps for h, ps in hashes.items() if len(ps) > 1}
 
 
-def unify_bibtex(root: Path) -> None:
-    """Combine BibTeX files into ``docs/refs/e_series.bib``."""
+def unify_bibtex(root: Path) -> Dict[str, str]:
+    """Combine ``*.bib`` files and record cite-key sources.
+
+    Parameters
+    ----------
+    root:
+        Repository root directory.
+
+    Returns
+    -------
+    Dict[str, str]
+        Mapping of BibTeX keys to their original file paths, relative to
+        ``root``.
+    """
+
     refs_dir = root / "docs" / "refs"
     refs_dir.mkdir(parents=True, exist_ok=True)
     bib_files = list(root.rglob("*.bib"))
+    key_map: Dict[str, str] = {}
+
     if not bib_files:
         (refs_dir / "e_series.bib").write_text("% Consolidated references\n")
-        return
+        (refs_dir / "e_series_keymap.json").write_text("{}\n")
+        return key_map
 
     seen: set[str] = set()
     with open(refs_dir / "e_series.bib", "w", encoding="utf-8") as out:
@@ -66,7 +79,13 @@ def unify_bibtex(root: Path) -> None:
                     if key in seen:
                         continue
                     seen.add(key)
+                    key_map[key] = str(file.relative_to(root))
                 out.write(line + "\n")
+
+    with open(refs_dir / "e_series_keymap.json", "w", encoding="utf-8") as fh:
+        json.dump(key_map, fh, indent=2)
+
+    return key_map
 
 
 if __name__ == "__main__":  # pragma: no cover - simple CLI
@@ -75,5 +94,7 @@ if __name__ == "__main__":  # pragma: no cover - simple CLI
     duplicates = detect_duplicates(
         [str(Path(ROOT, p)) for paths in manifest.values() for p in paths]
     )
-    unify_bibtex(ROOT)
-    print(json.dumps({"duplicates": duplicates}, indent=2))
+    key_map = unify_bibtex(ROOT)
+    print(
+        json.dumps({"duplicates": duplicates, "bib_keys": key_map}, indent=2)
+    )
