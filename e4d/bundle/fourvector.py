@@ -60,5 +60,5 @@ class FourVector:
         return FourVector(t_new, x_new, y_new, z_new)
 
     def as_array(self) -> ndarray:
-        flat = [self.t, self.x.flatten(), self.y.flatten(), self.z.flatten()]
-        return np.hstack(flat)
+        """Return the decoded ``(t, x, y, z)`` components as an array."""
+        return np.array(self._decode_components(), dtype=float)
