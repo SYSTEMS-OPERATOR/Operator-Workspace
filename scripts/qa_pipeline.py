@@ -19,7 +19,7 @@ def scan_repo(root: Path) -> Dict[str, List[str]]:
     """Walk the repository and categorise files by extension."""
     manifest: Dict[str, List[str]] = {key: [] for key in CATEGORIES}
     manifest["ci"].extend(
-        str(p)
+        str(p.relative_to(root))
         for p in (root / ".github" / "workflows").glob("*.yml")
         if p.is_file()
     )
