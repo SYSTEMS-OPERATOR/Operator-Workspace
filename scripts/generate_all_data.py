@@ -1,7 +1,8 @@
-"""Generate sample data for all E-group data generators."""
+"""Generate data for E-group generators with export utilities."""
 
 from pathlib import Path
 import sys
+import argparse
 
 # Ensure the repository root is on the Python path so the ``projects`` package
 # imports correctly when this script is executed directly.
@@ -20,26 +21,40 @@ from projects.E8_Model.E10.e10_data_generator import E10DataGenerator
 from projects.E8_Model.E11.e11_data_generator import E11DataGenerator
 
 
-GENERATORS = [
-    ("E1", E1DataGenerator),
-    ("E2", E2DataGenerator),
-    ("E3", E3DataGenerator),
-    ("E4", E4DataGenerator),
-    ("E5", E5DataGenerator),
-    ("E6", E6DataGenerator),
-    ("E7", E7DataGenerator),
-    ("E8", E8DataGenerator),
-    ("E9", E9DataGenerator),
-    ("E10", E10DataGenerator),
-    ("E11", E11DataGenerator),
-]
+GENERATORS = {
+    "E1": E1DataGenerator,
+    "E2": E2DataGenerator,
+    "E3": E3DataGenerator,
+    "E4": E4DataGenerator,
+    "E5": E5DataGenerator,
+    "E6": E6DataGenerator,
+    "E7": E7DataGenerator,
+    "E8": E8DataGenerator,
+    "E9": E9DataGenerator,
+    "E10": E10DataGenerator,
+    "E11": E11DataGenerator,
+}
 
 
-def main():
-    for name, generator_cls in GENERATORS:
-        generator = generator_cls(data_size=5)
-        data = generator.get_data()
-        print(f"{name}: {data.shape}")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Generate E-series datasets")
+    parser.add_argument("--group", default="E8", help="Exceptional group label")
+    parser.add_argument("--size", type=int, default=100, help="Dataset size")
+    parser.add_argument(
+        "--format", choices=["csv", "json", "npz"], default="csv", help="Export format"
+    )
+    parser.add_argument("--out", required=True, help="Output file path")
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    if args.group not in GENERATORS:
+        raise ValueError(f"Unknown group: {args.group}")
+    generator = GENERATORS[args.group](data_size=args.size)
+    generator.generate_data()
+    generator.export_data(args.out, args.format)
+    print(f"Saved {args.group} data -> {args.out}")
 
 
 if __name__ == "__main__":

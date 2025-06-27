@@ -7,6 +7,8 @@ E series data generators.
 
 import numpy as np
 
+from ...lie_algebra import root_system
+
 
 class E8DataGenerator:
     """A data generator for the E8 group."""
@@ -18,9 +20,10 @@ class E8DataGenerator:
         self.data = None
 
     def generate_data(self):
-        """Generate data for the E8 group."""
-        # Create a random dataset with eight features
-        self.data = np.random.rand(self.data_size, 8)
+        """Generate data for the E8 group using its root system."""
+        roots = root_system("E8")
+        idx = np.random.choice(len(roots), self.data_size, replace=True)
+        self.data = roots[idx]
         return self.data
 
     def get_data(self):
@@ -29,3 +32,18 @@ class E8DataGenerator:
         if self.data is None:
             self.generate_data()
         return self.data
+
+    def export_data(self, path, fmt="csv"):
+        """Export generated data to ``path`` in the given format."""
+        data = self.get_data()
+        if fmt == "csv":
+            np.savetxt(path, data, delimiter=",")
+        elif fmt == "json":
+            import json
+
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(data.tolist(), fh)
+        elif fmt == "npz":
+            np.savez(path, data=data)
+        else:
+            raise ValueError(f"Unknown format: {fmt}")
