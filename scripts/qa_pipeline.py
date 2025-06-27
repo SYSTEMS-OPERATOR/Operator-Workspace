@@ -78,14 +78,18 @@ def unify_bibtex(root: Path) -> Dict[str, str]:
     seen: set[str] = set()
     with open(refs_dir / "e_series.bib", "w", encoding="utf-8") as out:
         for file in bib_files:
+            skip_entry = False
             for line in file.read_text().splitlines():
                 if line.startswith("@"):
                     key = line.split("{", 1)[1].split(",", 1)[0]
                     if key in seen:
+                        skip_entry = True
                         continue
                     seen.add(key)
                     key_map[key] = str(file.relative_to(root))
-                out.write(line + "\n")
+                    skip_entry = False
+                if not skip_entry:
+                    out.write(line + "\n")
 
     with open(refs_dir / "e_series_keymap.json", "w", encoding="utf-8") as fh:
         json.dump(key_map, fh, indent=2)
