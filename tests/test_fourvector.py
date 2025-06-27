@@ -31,3 +31,9 @@ def test_invalid_axis():
     fv = FourVector(1.0, 0.0, 0.0, 0.0)
     with pytest.raises(ValueError):
         fv.lorentz_boost(0.1, axis="w")
+
+
+def test_superluminal_beta():
+    fv = FourVector(1.0, 0.0, 0.0, 0.0)
+    with pytest.raises(ValueError):
+        fv.lorentz_boost(1.1)

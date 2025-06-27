@@ -39,6 +39,8 @@ class FourVector:
             Spatial axis for the boost – ``"x"``, ``"y"`` or ``"z"``.
         """
 
+        if not -1.0 < beta < 1.0:
+            raise ValueError("beta must satisfy |beta| < 1")
         gamma = 1.0 / np.sqrt(1 - beta ** 2)
         t, x, y, z = self._decode_components()
         if axis == "x":
