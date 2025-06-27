@@ -39,7 +39,7 @@ def build_manifest(root: Path) -> Dict[str, List[str]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate repository manifest")
-    parser.add_argument("--output", default="repo_manifest.yaml", help="Output manifest path")
+    parser.add_argument("--output", default="repo_manifest.json", help="Output manifest path")
     args = parser.parse_args()
 
     manifest = build_manifest(Path.cwd())
