@@ -46,11 +46,21 @@ def scan_repo(root: Path = ROOT) -> Dict[str, List[str]]:
     return manifest
 
 
-def detect_duplicates(paths: List[str]) -> Dict[str, List[str]]:
-    """Return dict of sha256 -> [paths] for duplicates."""
+def detect_duplicates(paths: List[str], root: Path = ROOT) -> Dict[str, List[str]]:
+    """Return mapping of ``sha256`` to file paths for duplicates.
+
+    Parameters
+    ----------
+    paths:
+        File paths relative to ``root``.
+    root:
+        Base directory for resolving ``paths``.
+    """
+
     hashes: Dict[str, List[str]] = {}
     for p in paths:
-        h = sha256(Path(p))
+        full_path = root / p
+        h = sha256(full_path)
         hashes.setdefault(h, []).append(p)
     return {h: ps for h, ps in hashes.items() if len(ps) > 1}
 
@@ -59,7 +69,7 @@ def main() -> None:
     manifest = scan_repo()
     with open("repo_manifest.yaml", "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
-    dups = detect_duplicates([p for group in manifest.values() for p in group])
+    dups = detect_duplicates([p for group in manifest.values() for p in group], ROOT)
     if dups:
         with open("duplicate_files.json", "w", encoding="utf-8") as f:
             json.dump(dups, f, indent=2)
