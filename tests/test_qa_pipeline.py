@@ -32,3 +32,15 @@ def test_unify_bibtex_creates_key_map(tmp_path: Path) -> None:
     expected = {"refA": "a.bib", "refB": "sub/b.bib"}
     assert key_map == expected
     assert key_map_file == expected
+
+
+def test_unify_bibtex_skips_duplicates(tmp_path: Path) -> None:
+    root = tmp_path
+    (root / "docs" / "refs").mkdir(parents=True)
+    (root / "a.bib").write_text("@book{refA, title={A}}\n")
+    (root / "b.bib").write_text("@article{refA, title={B}}\n  note={dup}\n")
+
+    unify_bibtex(root)
+
+    bib_text = (root / "docs" / "refs" / "e_series.bib").read_text()
+    assert "dup" not in bib_text
