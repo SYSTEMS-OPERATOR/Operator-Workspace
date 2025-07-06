@@ -1,0 +1,31 @@
+[build-system]
+requires     = ["hatchling>=1.22"]
+build-backend = "hatchling.build"
+
+[project]
+name            = "seamless-torus"
+version         = "0.1.0"
+description     = "Toroidal padding & RingLinear layers for seamless neural-network optimization."
+authors         = [{name="Operator-Workspace Team", email="dev@example.com"}]
+license         = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies    = ["torch>=2.2", "numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov", "wandb"]
+
+[tool.hatch.envs.test]
+dependencies = [
+    "pytest>=8",
+    "torch>=2.2",
+    "numpy>=1.24",
+]
+
+[tool.hatch.envs.test.scripts]
+run = "python -m pytest -v"
+
+[tool.hatch.build.targets.sdist]
+include = ["seamless_torus", "README.md", "LICENSE"]
+
+[tool.hatch.version]
+path = "seamless_torus/__init__.py"
